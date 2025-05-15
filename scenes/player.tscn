@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7eeos2blxtvb"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_pm31n"]
+[ext_resource type="Script" path="res://scripts/1stPerson/pivot.gd" id="2_3p8sm"]
+[ext_resource type="Script" path="res://scripts/1stPerson/camera_3d.gd" id="3_3m1hy"]
+[ext_resource type="Script" path="res://scripts/mouse_ray_cast.gd" id="4_qbnph"]
+[ext_resource type="Script" path="res://scripts/interaction_handler.gd" id="5_ex3sa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4wxoc"]
+radius = 0.252731
+height = 1.7
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_pm31n")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.6, 0)
+script = ExtResource("2_3p8sm")
+
+[node name="Camera3D" type="Camera3D" parent="Pivot" groups=["Camera"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+current = true
+script = ExtResource("3_3m1hy")
+
+[node name="MouseRayCast" type="Node3D" parent="Pivot/Camera3D" groups=["player_mouse_raycast"]]
+script = ExtResource("4_qbnph")
+
+[node name="GrabTarget" type="Marker3D" parent="Pivot/Camera3D" groups=["GrabTarget"]]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_4wxoc")
+
+[node name="InteractionHandler" type="Node" parent="." node_paths=PackedStringArray("MouseRayCast")]
+script = ExtResource("5_ex3sa")
+MouseRayCast = NodePath("../Pivot/Camera3D/MouseRayCast")
+
+[node name="StairsRaycast" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.708, 0.54)
+target_position = Vector3(0, -0.55, 0)
+
+[node name="StairsBelowRaycast" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+target_position = Vector3(0, -0.75, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(3, 3)
+layout_mode = 2
