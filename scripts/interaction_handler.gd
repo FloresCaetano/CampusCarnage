@@ -11,7 +11,7 @@ func _process(_delta):
 	interact()
 
 func interact():
-	var interaction_ray = MouseRayCast.calc_3D_interactions(interact_layer, 3)
+	var interaction_ray = MouseRayCast.calc_3D_interactions(interact_layer, 2)
 	if interaction_ray:
 		var collider = interaction_ray.collider
 		if collider.is_in_group("interactable") and can_interact:

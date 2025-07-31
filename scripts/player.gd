@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 #
 var drag_data
@@ -14,7 +15,7 @@ var on_debug := false
 var can_footstep : bool = true
 
 #MOVE
-var max_speed = 5
+var max_speed = 10
 var acceleration = 0.5
 var desaceleration = 0.5
 
@@ -157,3 +158,20 @@ func activate():
 
 func _on_footsteps_timer_timeout():
 	can_footstep = true
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("Escape"):
+		var is_visible = $Settings.visible
+		if is_visible:
+			$Settings.visible = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Pivote.cameraLock = false
+		else:
+			$Settings.visible =  true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Pivote.cameraLock = true
+
+
+func take_damage():
+	$Hud/AnimationPlayer.stop()
+	$Hud/AnimationPlayer.play("take_damage")

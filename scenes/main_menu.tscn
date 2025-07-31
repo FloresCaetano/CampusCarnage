@@ -1,0 +1,492 @@
+[gd_scene load_steps=26 format=3 uid="uid://b8db627y5l0y5"]
+
+[ext_resource type="Script" path="res://scripts/main_menu/main_menu_handler.gd" id="1_h7n4f"]
+[ext_resource type="ArrayMesh" uid="uid://64gc4e4ai865" path="res://meshlibraries/book.tres" id="1_wolgq"]
+[ext_resource type="FontFile" uid="uid://ds1svjmlkxlo2" path="res://scenes/VCR_OSD_MONO_1.001.ttf" id="1_wyqq0"]
+[ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="2_1g40s"]
+[ext_resource type="Script" path="res://scripts/main_menu/particles.gd" id="2_s5nnr"]
+[ext_resource type="Texture2D" uid="uid://dvay7cvds4yp3" path="res://assets/logo/CampusCarnage.png" id="3_i8dbd"]
+[ext_resource type="ArrayMesh" uid="uid://b85b2c0cbtvni" path="res://meshlibraries/bullet.tres" id="3_m81vk"]
+[ext_resource type="AudioStream" uid="uid://cxuphb0g1hjav" path="res://assets/sound/bg_music/intro_loop.mp3" id="7_xbtfw"]
+[ext_resource type="Script" path="res://scripts/main_menu/setting_sens.gd" id="8_3wchj"]
+[ext_resource type="Script" path="res://scripts/main_menu/setting_vol.gd" id="8_p6xm0"]
+[ext_resource type="Script" path="res://scripts/main_menu/settings_leave.gd" id="11_p17k3"]
+[ext_resource type="Texture2D" uid="uid://br1iixgmkkh63" path="res://assets/logo/Godot_icon.png" id="12_7q50i"]
+[ext_resource type="Texture2D" uid="uid://biey0ey1px04n" path="res://assets/logo/LaleBites LONG.png" id="13_36e8b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nwuj0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydjy2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dq0dm"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f30di"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_voh2b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xh7rr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paja0"]
+bg_color = Color(0.568627, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_2eymn"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 35
+Button/fonts/font = ExtResource("1_wyqq0")
+Button/styles/disabled = SubResource("StyleBoxFlat_ydjy2")
+Button/styles/focus = SubResource("StyleBoxFlat_dq0dm")
+Button/styles/hover = SubResource("StyleBoxFlat_f30di")
+Button/styles/normal = SubResource("StyleBoxEmpty_voh2b")
+Button/styles/pressed = SubResource("StyleBoxFlat_xh7rr")
+HSlider/styles/slider = SubResource("StyleBoxFlat_paja0")
+Label/fonts/font = ExtResource("1_wyqq0")
+LineEdit/fonts/font = ExtResource("1_wyqq0")
+
+[sub_resource type="Animation" id="Animation_bamj4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu/Logo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vhq2m"]
+resource_name = "logo_upbeat"
+length = 0.6
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu/Logo:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.38, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2skhn"]
+_data = {
+"RESET": SubResource("Animation_bamj4"),
+"logo_upbeat": SubResource("Animation_vhq2m")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qegah"]
+content_margin_bottom = 5.0
+bg_color = Color(0.568627, 0, 0, 1)
+border_width_right = 20
+border_color = Color(0.051971, 0.051971, 0.0519709, 1)
+
+[node name="MainMenuHandler" type="Node3D"]
+script = ExtResource("1_h7n4f")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_1g40s")
+
+[node name="bg" type="ColorRect" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.619608)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainMenu"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="SubViewport" type="SubViewport" parent="MainMenu/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MainMenu/SubViewportContainer/SubViewport"]
+
+[node name="bulletParticles" type="CPUParticles3D" parent="MainMenu/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.182691, 3.66667, -1.19794)
+amount = 200
+lifetime = 4.0
+speed_scale = 0.1
+mesh = ExtResource("3_m81vk")
+emission_shape = 1
+emission_sphere_radius = 3.0
+scale_amount_min = 0.05
+scale_amount_max = 0.05
+script = ExtResource("2_s5nnr")
+
+[node name="bookParticles" type="CPUParticles3D" parent="MainMenu/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.182691, 3.66667, -1.19794)
+amount = 100
+lifetime = 4.0
+speed_scale = 0.1
+mesh = ExtResource("1_wolgq")
+emission_shape = 1
+emission_sphere_radius = 3.0
+scale_amount_min = 0.01
+scale_amount_max = 0.01
+script = ExtResource("2_s5nnr")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MainMenu/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39287, 0.885124)
+light_energy = 5.593
+omni_range = 6.49
+omni_attenuation = 0.325
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRectSpacer" type="TextureRect" parent="MainMenu/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_nwuj0")
+expand_mode = 4
+
+[node name="btnPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+text = "JUGAR"
+
+[node name="btnSettings" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+text = "CONFIGURACION"
+
+[node name="btnExit" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+text = "SALIR"
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="MainMenu"]
+unique_name_in_owner = true
+stream = ExtResource("7_xbtfw")
+parameters/looping = true
+
+[node name="Logo" type="TextureRect" parent="MainMenu"]
+custom_minimum_size = Vector2(500, 500)
+layout_direction = 1
+layout_mode = 0
+offset_left = 383.0
+offset_top = 75.0
+offset_right = 918.193
+offset_bottom = 610.193
+pivot_offset = Vector2(250, 250)
+mouse_filter = 2
+texture = ExtResource("3_i8dbd")
+expand_mode = 1
+
+[node name="LogoAnim" type="AnimationPlayer" parent="MainMenu/Logo"]
+unique_name_in_owner = true
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_2skhn")
+}
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Settings/CenterContainer"]
+custom_minimum_size = Vector2(700, 300)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.67451)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer"]
+layout_mode = 2
+
+[node name="settingVol" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+script = ExtResource("8_p6xm0")
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingVol"]
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+theme_override_font_sizes/font_size = 23
+text = "Volumen: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer/settingVol"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_2eymn")
+min_value = -30.0
+max_value = 6.0
+value = -10.0
+
+[node name="settingGraficos" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 130
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingGraficos"]
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+theme_override_font_sizes/font_size = 23
+text = "Graficos:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Settings/CenterContainer/VBoxContainer/settingGraficos"]
+custom_minimum_size = Vector2(180, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_wyqq0")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_qegah")
+alignment = 1
+icon_alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Bajos"
+popup/item_1/text = "Medios"
+popup/item_1/id = 1
+popup/item_2/text = "Altos"
+popup/item_2/id = 2
+
+[node name="settingSens" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("8_3wchj")
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+theme_override_font_sizes/font_size = 23
+text = "Sensibilidad: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
+custom_minimum_size = Vector2(320, 30)
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+value = 50.0
+
+[node name="LineEdit" type="LineEdit" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+theme_override_font_sizes/font_size = 23
+editable = false
+
+[node name="settingsLeave" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+alignment = 2
+script = ExtResource("11_p17k3")
+
+[node name="btnExit" type="Button" parent="Settings/CenterContainer/VBoxContainer/settingsLeave"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_2eymn")
+text = "SALIR"
+
+[node name="MadeWithGodot" type="Control" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MadeWithGodot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="MadeWithGodot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MadeWithGodot/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MadeWithGodot/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_2eymn")
+theme_override_font_sizes/font_size = 76
+text = "HECHO CON GODOT"
+
+[node name="TextureRect" type="TextureRect" parent="MadeWithGodot/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = ExtResource("12_7q50i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="transition_timer" type="Timer" parent="MadeWithGodot"]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="BytesLogo" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="BytesLogo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="BytesLogo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BytesLogo/CenterContainer"]
+custom_minimum_size = Vector2(700, 700)
+layout_mode = 2
+texture = ExtResource("13_36e8b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="BytesLogo"]
+process_callback = 0
+wait_time = 10.2
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/btnPlay" to="MainMenu" method="_on_btn_play_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/btnSettings" to="MainMenu" method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="MainMenu/CenterContainer/VBoxContainer/btnExit" to="MainMenu" method="_on_btn_exit_pressed"]
+[connection signal="value_changed" from="Settings/CenterContainer/VBoxContainer/settingVol/HSlider" to="Settings/CenterContainer/VBoxContainer/settingVol" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/settingsLeave/btnExit" to="Settings/CenterContainer/VBoxContainer/settingsLeave" method="_on_btn_exit_pressed"]
+[connection signal="timeout" from="MadeWithGodot/transition_timer" to="." method="_on_transition_timer_timeout"]
+[connection signal="timeout" from="BytesLogo/Timer" to="." method="_on_timer_timeout"]

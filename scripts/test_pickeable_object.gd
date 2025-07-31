@@ -6,6 +6,8 @@ extends RigidBody3D
 #FLAGS
 var grabed : bool = false
 
+
+
 func mouse_interaction():
 	if Input.is_action_just_pressed("E") and !grabed:
 		grab()
