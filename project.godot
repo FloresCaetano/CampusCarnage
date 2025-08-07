@@ -12,7 +12,7 @@ config_version=5
 
 config/name="CampusCarnage"
 run/main_scene="res://scenes/main_scene.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -28,7 +28,7 @@ window/size/window_height_override=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
+enabled=PackedStringArray("res://addons/voronoishatter/plugin.cfg")
 
 [file_customization]
 
@@ -40,6 +40,30 @@ folder_colors={
 
 interactable=""
 Player=""
+destructible=""
+passive_shootable=""
+
+[importer_defaults]
+
+texture={
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": true,
+"mipmaps/limit": -1,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
+}
 
 [input]
 
@@ -113,6 +137,7 @@ R={
 
 3d_physics/layer_3="interactables"
 3d_physics/layer_4="bullets"
+3d_physics/layer_24="Player"
 
 [rendering]
 

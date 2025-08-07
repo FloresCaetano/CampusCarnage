@@ -15,6 +15,7 @@ func interact():
 	if interaction_ray:
 		var collider = interaction_ray.collider
 		if collider.is_in_group("interactable") and can_interact:
+				collider.mesh.material_overlay = load("res://materials/mat_outline.tres")
 				collider.mouse_interaction()
 				if current_object != collider: leave_interaction() #In case we see at other collider
 				current_object = collider
@@ -25,5 +26,7 @@ func interact():
 		leave_interaction()
 
 func leave_interaction():
+	if current_object != null:
+		current_object.mesh.material_overlay = null
 	current_object = null
 	already_interacted = false

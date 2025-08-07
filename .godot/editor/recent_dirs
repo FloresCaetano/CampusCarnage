@@ -1,10 +1,17 @@
+res://scripts/objects
+res://scripts/tools
+res://materials
+res://shaders
+res://scenes/UI
+res://Themes
+res://assets/fonts
+res://scripts/dialog_bubble
 res://scripts/ai
 res://scenes
 C:/Program Files/Blender Foundation/Blender 4.5
 res://scenes/guns
 res://scripts/guns
 res://scripts
-res://shaders
 res://scripts/main_menu
 res://scenes/trash]
 res://meshlibraries

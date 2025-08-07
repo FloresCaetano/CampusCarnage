@@ -1,14 +1,14 @@
 [gd_scene load_steps=23 format=4 uid="uid://55lds07odrxh"]
 
 [ext_resource type="Texture2D" uid="uid://bfkr03usvycnh" path="res://assets/npc/textures/man_tex.png" id="1_3anqx"]
-[ext_resource type="Script" path="res://scripts/ai/enemy.gd" id="1_db7pf"]
+[ext_resource type="Script" uid="uid://7g224wgi5cpw" path="res://scripts/ai/enemy.gd" id="1_db7pf"]
 [ext_resource type="Texture2D" uid="uid://c77yfgkdk5s1f" path="res://assets/npc/textures/Flo_head.png" id="2_fr8xl"]
 [ext_resource type="AudioStream" uid="uid://6oatowybxfok" path="res://assets/sound/fx/shotgun_shoot.mp3" id="2_qm46f"]
 [ext_resource type="Texture2D" uid="uid://dbg7a7872gdou" path="res://assets/npc/textures/Shotgun_01_Albedo.png" id="3_v15ae"]
-[ext_resource type="Script" path="res://scripts/ai/finite_state_machine.gd" id="4_dvihv"]
-[ext_resource type="Script" path="res://scripts/ai/enemy_idle_state.gd" id="5_c1kwb"]
-[ext_resource type="Script" path="res://scripts/ai/enemy_attack_state.gd" id="6_el2pt"]
-[ext_resource type="Script" path="res://scripts/ai/enemy_death_state.gd" id="9_8cfwr"]
+[ext_resource type="Script" uid="uid://cbfsgeed4vlwk" path="res://scripts/ai/finite_state_machine.gd" id="4_dvihv"]
+[ext_resource type="Script" uid="uid://b01molsenlkd1" path="res://scripts/ai/enemy_idle_state.gd" id="5_c1kwb"]
+[ext_resource type="Script" uid="uid://b603ijxs5k1t1" path="res://scripts/ai/enemy_attack_state.gd" id="6_el2pt"]
+[ext_resource type="Script" uid="uid://c5l08xa06f5ow" path="res://scripts/ai/enemy_dead_state.gd" id="9_8cfwr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmu0q"]
 resource_name = "Shotgun_01_MI.001"
@@ -939,10 +939,10 @@ tracks/25/keys = PackedFloat32Array(0, 1, -0.831929, 0.083428, 0.115891, 0.53619
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1xgix"]
 _data = {
-"aim": SubResource("Animation_fhja1"),
-"dead": SubResource("Animation_wm858"),
-"idle": SubResource("Animation_ik8n8"),
-"run": SubResource("Animation_5iakj")
+&"aim": SubResource("Animation_fhja1"),
+&"dead": SubResource("Animation_wm858"),
+&"idle": SubResource("Animation_ik8n8"),
+&"run": SubResource("Animation_5iakj")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ga7wh"]
@@ -950,7 +950,6 @@ radius = 0.194994
 height = 1.77533
 
 [node name="Enemy" type="CharacterBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_layer = 9
 collision_mask = 2
 script = ExtResource("1_db7pf")
@@ -961,9 +960,6 @@ stream = ExtResource("2_qm46f")
 
 [node name="caetano" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-
-[node name="Camera3D2" type="Camera3D" parent="caetano"]
-transform = Transform3D(-0.5, -1.22969e-08, 4.19461e-08, 0, 0.479807, 0.14066, -4.37114e-08, 0.14066, -0.479807, 0.0365398, 1.44343, -1.24158)
 
 [node name="rig" type="Node3D" parent="caetano"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0424565, 0)
@@ -1188,7 +1184,7 @@ bones/30/rotation = Quaternion(-0.831929, 0.083428, 0.115891, 0.536193)
 bones/30/scale = Vector3(1, 1, 1)
 
 [node name="shotgun" type="BoneAttachment3D" parent="caetano/rig/Skeleton3D"]
-transform = Transform3D(0.00176949, -0.000211979, -0.0098399, 0.00156195, 0.00987701, 6.81035e-05, 0.00971748, -0.00154899, 0.00178084, -0.0511554, 1.38059, 0.544663)
+transform = Transform3D(0.00176948, -0.000211987, -0.0098399, 0.00156197, 0.00987701, 6.80974e-05, 0.00971747, -0.00154901, 0.00178083, -0.0511556, 1.38059, 0.544664)
 bone_name = "shotgun"
 bone_idx = 24
 
@@ -1202,7 +1198,7 @@ skin = SubResource("Skin_wrrls")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="caetano"]
 libraries = {
-"": SubResource("AnimationLibrary_1xgix")
+&"": SubResource("AnimationLibrary_1xgix")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -1231,17 +1227,7 @@ actor = NodePath("../..")
 animator = NodePath("../../caetano/AnimationPlayer")
 vision_cast = NodePath("../../RayCast3D")
 
-[node name="EnemyDeathState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("actor", "animator")]
+[node name="EnemyDeadState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("actor", "animator")]
 script = ExtResource("9_8cfwr")
 actor = NodePath("../..")
 animator = NodePath("../../caetano/AnimationPlayer")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-handle_input_locally = false
-size = Vector2i(426, 240)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.959614, 0.28132, 0, -0.28132, 0.959614, -0.0730795, 2.88686, -0.516839)
-current = true

@@ -2,11 +2,10 @@ extends RigidBody3D
 
 @onready var GrabTarget = get_tree().get_first_node_in_group("GrabTarget")
 @onready var Camera : Camera3D = get_tree().get_first_node_in_group("Camera")
+@onready var mesh : MeshInstance3D = $Torre
 
 #FLAGS
 var grabed : bool = false
-
-
 
 func mouse_interaction():
 	if Input.is_action_just_pressed("E") and !grabed:

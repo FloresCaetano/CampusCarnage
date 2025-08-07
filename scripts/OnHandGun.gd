@@ -36,15 +36,16 @@ func shot():
 		return
 	
 	var collider = shoot_ray[0].collider
-	var normal = shoot_ray[0].normal
 	var ray_position = shoot_ray[0].position
 	var ray_direction = shoot_ray[1]
 	
-	if collider is RigidBody3D:
+	if collider.is_in_group("passive_shootable"):
 		collider.apply_force(ray_direction * Gun.push, ray_position - collider.global_position)
-	if collider is Enemy:
+	elif collider is Enemy:
 		var enemy_fsm : FiniteStateMachine = collider.get_fsm()
-		enemy_fsm.change_state(collider.enemy_death_state)
+		enemy_fsm.change_state(collider.enemy_dead_state)
+	elif collider is Shootable:
+		collider._on_shoot(ray_direction * Gun.push, ray_position - collider.global_position)
 
 
 func _input(event: InputEvent) -> void:

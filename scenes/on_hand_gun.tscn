@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://do0fplqpavpu0"]
 
-[ext_resource type="Script" path="res://scripts/OnHandGun.gd" id="1_wbfou"]
+[ext_resource type="Script" uid="uid://b7qcn1m813bfm" path="res://scripts/OnHandGun.gd" id="1_wbfou"]
 [ext_resource type="PackedScene" uid="uid://cmx80ufnfu4nk" path="res://scenes/guns/shotgun.tscn" id="2_bhp7g"]
 
 [node name="OnHandGun" type="Node3D"]

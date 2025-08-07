@@ -352,7 +352,7 @@ tracks/23/keys = PackedFloat32Array(0, 1, -0.774522, 0.026401, 0.103304, 0.62349
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0kgha"]
 _data = {
-"Run": SubResource("Animation_n21ef")
+&"Run": SubResource("Animation_n21ef")
 }
 
 [node name="cae" type="Node3D"]

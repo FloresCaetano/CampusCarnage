@@ -1,21 +1,38 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7eeos2blxtvb"]
+[gd_scene load_steps=27 format=3 uid="uid://c7eeos2blxtvb"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_pm31n"]
-[ext_resource type="Script" path="res://scripts/1stPerson/pivot.gd" id="2_3p8sm"]
-[ext_resource type="Script" path="res://scripts/1stPerson/camera_3d.gd" id="3_3m1hy"]
-[ext_resource type="Script" path="res://scripts/mouse_ray_cast.gd" id="4_qbnph"]
-[ext_resource type="Script" path="res://scripts/interaction_handler.gd" id="5_ex3sa"]
-[ext_resource type="Script" path="res://scripts/OnHandGun.gd" id="5_ngulb"]
+[ext_resource type="Script" uid="uid://cxfspoafflw33" path="res://scripts/player.gd" id="1_pm31n"]
+[ext_resource type="Script" uid="uid://dljcpud17tsra" path="res://scripts/1stPerson/pivot.gd" id="2_3p8sm"]
+[ext_resource type="Script" uid="uid://bm64pjke215og" path="res://scripts/1stPerson/camera_3d.gd" id="3_3m1hy"]
+[ext_resource type="Script" uid="uid://de05ovf2urgyg" path="res://scripts/mouse_ray_cast.gd" id="4_qbnph"]
+[ext_resource type="Script" uid="uid://brqonict61ixx" path="res://scripts/interaction_handler.gd" id="5_ex3sa"]
+[ext_resource type="Script" uid="uid://b7qcn1m813bfm" path="res://scripts/OnHandGun.gd" id="5_ngulb"]
 [ext_resource type="PackedScene" uid="uid://cmx80ufnfu4nk" path="res://scenes/guns/shotgun.tscn" id="6_uhhb1"]
-[ext_resource type="Script" path="res://scripts/animation_handler.gd" id="7_0n82h"]
-[ext_resource type="Script" path="res://scripts/main_menu/setting_vol.gd" id="8_a70md"]
+[ext_resource type="Script" uid="uid://cjmlepfkgt3jx" path="res://scripts/animation_handler.gd" id="7_0n82h"]
+[ext_resource type="Script" uid="uid://c4bqkxar4r23y" path="res://scripts/main_menu/setting_vol.gd" id="8_a70md"]
 [ext_resource type="FontFile" uid="uid://ds1svjmlkxlo2" path="res://scenes/VCR_OSD_MONO_1.001.ttf" id="9_2iphh"]
-[ext_resource type="Script" path="res://scripts/main_menu/setting_sens.gd" id="10_rmyq1"]
-[ext_resource type="Script" path="res://scripts/main_menu/settings_leave.gd" id="11_qq36a"]
+[ext_resource type="Texture2D" uid="uid://bcj4pdmlffgf8" path="res://assets/hud/crosshairs/45.png" id="9_4yvpv"]
+[ext_resource type="PackedScene" uid="uid://bwgcvjcn5tkfu" path="res://scenes/UI/dialog_bubble.tscn" id="9_kgeg3"]
+[ext_resource type="Script" uid="uid://dpkfs6i4fw8s" path="res://scripts/main_menu/setting_sens.gd" id="10_rmyq1"]
+[ext_resource type="Script" uid="uid://blcgetklri5eb" path="res://scripts/main_menu/settings_leave.gd" id="11_qq36a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4wxoc"]
 radius = 0.252731
 height = 1.7
+
+[sub_resource type="Animation" id="Animation_17qfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageIndicator:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.572549, 0, 0.129412, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_23cc7"]
 resource_name = "take_damage"
@@ -33,25 +50,10 @@ tracks/0/keys = {
 "values": [Color(0.572549, 0, 0.129412, 0), Color(0.572549, 0, 0.129412, 0.313726), Color(0.572549, 0, 0.129412, 0.313726), Color(0.572549, 0, 0.129412, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_17qfx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageIndicator:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.572549, 0, 0.129412, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3a6e0"]
 _data = {
-"RESET": SubResource("Animation_17qfx"),
-"take_damage": SubResource("Animation_23cc7")
+&"RESET": SubResource("Animation_17qfx"),
+&"take_damage": SubResource("Animation_23cc7")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga6wa"]
@@ -158,14 +160,15 @@ border_width_right = 20
 border_color = Color(0.051971, 0.051971, 0.0519709, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 8388608
 script = ExtResource("1_pm31n")
 
 [node name="Pivot" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.6, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.87391, 0)
 script = ExtResource("2_3p8sm")
 
 [node name="Camera3D" type="Camera3D" parent="Pivot" groups=["Camera"]]
-transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 0, 0.771978, 0)
+transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 0, 0, 0)
 current = true
 script = ExtResource("3_3m1hy")
 
@@ -177,7 +180,7 @@ script = ExtResource("4_qbnph")
 unique_name_in_owner = true
 
 [node name="OnHandGun" type="Node3D" parent="Pivot"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.813513, 0)
 script = ExtResource("5_ngulb")
 GunScene = ExtResource("6_uhhb1")
 
@@ -217,9 +220,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Crosshair" type="ColorRect" parent="Hud/Crosshair"]
-custom_minimum_size = Vector2(3, 3)
+[node name="TextureRect" type="TextureRect" parent="Hud/Crosshair"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+texture = ExtResource("9_4yvpv")
+expand_mode = 1
 
 [node name="DamageIndicator" type="ColorRect" parent="Hud"]
 layout_mode = 1
@@ -232,19 +237,15 @@ color = Color(0.572549, 0, 0.129412, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hud"]
 libraries = {
-"": SubResource("AnimationLibrary_3a6e0")
+&"": SubResource("AnimationLibrary_3a6e0")
 }
 
-[node name="Settings" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="DialogBubble" parent="Hud" instance=ExtResource("9_kgeg3")]
+layout_mode = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Settings"]
+[node name="Settings" type="Control" parent="Hud"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -252,21 +253,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Settings/CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Hud/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Settings/CenterContainer"]
 custom_minimum_size = Vector2(700, 300)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.67451)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Settings/CenterContainer"]
 layout_mode = 2
 
-[node name="settingVol" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+[node name="settingVol" type="HBoxContainer" parent="Hud/Settings/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 25
 script = ExtResource("8_a70md")
 
-[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingVol"]
+[node name="Label" type="Label" parent="Hud/Settings/CenterContainer/VBoxContainer/settingVol"]
 layout_mode = 2
 theme = SubResource("Theme_7pfk5")
 theme_override_font_sizes/font_size = 23
@@ -274,7 +283,7 @@ text = "Volumen: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer/settingVol"]
+[node name="HSlider" type="HSlider" parent="Hud/Settings/CenterContainer/VBoxContainer/settingVol"]
 custom_minimum_size = Vector2(300, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -283,11 +292,11 @@ min_value = -30.0
 max_value = 6.0
 value = -10.0
 
-[node name="settingGraficos" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+[node name="settingGraficos" type="HBoxContainer" parent="Hud/Settings/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 130
 
-[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingGraficos"]
+[node name="Label" type="Label" parent="Hud/Settings/CenterContainer/VBoxContainer/settingGraficos"]
 layout_mode = 2
 theme = SubResource("Theme_7pfk5")
 theme_override_font_sizes/font_size = 23
@@ -295,7 +304,7 @@ text = "Graficos:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Settings/CenterContainer/VBoxContainer/settingGraficos"]
+[node name="OptionButton" type="OptionButton" parent="Hud/Settings/CenterContainer/VBoxContainer/settingGraficos"]
 custom_minimum_size = Vector2(180, 20)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -307,16 +316,17 @@ icon_alignment = 1
 selected = 0
 item_count = 3
 popup/item_0/text = "Bajos"
+popup/item_0/id = 0
 popup/item_1/text = "Medios"
 popup/item_1/id = 1
 popup/item_2/text = "Altos"
 popup/item_2/id = 2
 
-[node name="settingSens" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+[node name="settingSens" type="HBoxContainer" parent="Hud/Settings/CenterContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("10_rmyq1")
 
-[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
+[node name="Label" type="Label" parent="Hud/Settings/CenterContainer/VBoxContainer/settingSens"]
 layout_mode = 2
 theme = SubResource("Theme_7pfk5")
 theme_override_font_sizes/font_size = 23
@@ -324,29 +334,29 @@ text = "Sensibilidad: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
+[node name="HSlider" type="HSlider" parent="Hud/Settings/CenterContainer/VBoxContainer/settingSens"]
 custom_minimum_size = Vector2(320, 30)
 layout_mode = 2
 theme = SubResource("Theme_7pfk5")
 value = 50.0
 
-[node name="LineEdit" type="LineEdit" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
+[node name="LineEdit" type="LineEdit" parent="Hud/Settings/CenterContainer/VBoxContainer/settingSens"]
 layout_mode = 2
 theme = SubResource("Theme_7pfk5")
 theme_override_font_sizes/font_size = 23
 editable = false
 
-[node name="settingsLeave" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer"]
+[node name="settingsLeave" type="HBoxContainer" parent="Hud/Settings/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 alignment = 2
 script = ExtResource("11_qq36a")
 
-[node name="btnExit" type="Button" parent="Settings/CenterContainer/VBoxContainer/settingsLeave"]
+[node name="btnExit" type="Button" parent="Hud/Settings/CenterContainer/VBoxContainer/settingsLeave"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_7pfk5")
 text = "SALIR AL MENU PRINCIPAL"
 
-[connection signal="value_changed" from="Settings/CenterContainer/VBoxContainer/settingVol/HSlider" to="Settings/CenterContainer/VBoxContainer/settingVol" method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/settingsLeave/btnExit" to="Settings/CenterContainer/VBoxContainer/settingsLeave" method="_on_btn_exit_pressed"]
+[connection signal="value_changed" from="Hud/Settings/CenterContainer/VBoxContainer/settingVol/HSlider" to="Hud/Settings/CenterContainer/VBoxContainer/settingVol" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Hud/Settings/CenterContainer/VBoxContainer/settingsLeave/btnExit" to="Hud/Settings/CenterContainer/VBoxContainer/settingsLeave" method="_on_btn_exit_pressed"]

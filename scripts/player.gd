@@ -161,13 +161,13 @@ func _on_footsteps_timer_timeout():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("Escape"):
-		var is_visible = $Settings.visible
-		if is_visible:
-			$Settings.visible = false
+		var _is_visible = %Settings.visible
+		if _is_visible:
+			%Settings.visible = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Pivote.cameraLock = false
 		else:
-			$Settings.visible =  true
+			%Settings.visible =  true
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			Pivote.cameraLock = true
 

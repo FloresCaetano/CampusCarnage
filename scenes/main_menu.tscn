@@ -1,117 +1,21 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8db627y5l0y5"]
+[gd_scene load_steps=20 format=3 uid="uid://b8db627y5l0y5"]
 
-[ext_resource type="Script" path="res://scripts/main_menu/main_menu_handler.gd" id="1_h7n4f"]
+[ext_resource type="Script" uid="uid://ckoxy4uqmfvkb" path="res://scripts/main_menu/main_menu_handler.gd" id="1_h7n4f"]
 [ext_resource type="ArrayMesh" uid="uid://64gc4e4ai865" path="res://meshlibraries/book.tres" id="1_wolgq"]
 [ext_resource type="FontFile" uid="uid://ds1svjmlkxlo2" path="res://scenes/VCR_OSD_MONO_1.001.ttf" id="1_wyqq0"]
-[ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="2_1g40s"]
-[ext_resource type="Script" path="res://scripts/main_menu/particles.gd" id="2_s5nnr"]
+[ext_resource type="Script" uid="uid://ceq1bqrh2k2xl" path="res://scripts/main_menu/main_menu.gd" id="2_1g40s"]
+[ext_resource type="Script" uid="uid://6m3c5ycc8l03" path="res://scripts/main_menu/particles.gd" id="2_s5nnr"]
 [ext_resource type="Texture2D" uid="uid://dvay7cvds4yp3" path="res://assets/logo/CampusCarnage.png" id="3_i8dbd"]
 [ext_resource type="ArrayMesh" uid="uid://b85b2c0cbtvni" path="res://meshlibraries/bullet.tres" id="3_m81vk"]
+[ext_resource type="Theme" uid="uid://dc5rv5ct1oubj" path="res://Themes/label.tres" id="6_1qsje"]
 [ext_resource type="AudioStream" uid="uid://cxuphb0g1hjav" path="res://assets/sound/bg_music/intro_loop.mp3" id="7_xbtfw"]
-[ext_resource type="Script" path="res://scripts/main_menu/setting_sens.gd" id="8_3wchj"]
-[ext_resource type="Script" path="res://scripts/main_menu/setting_vol.gd" id="8_p6xm0"]
-[ext_resource type="Script" path="res://scripts/main_menu/settings_leave.gd" id="11_p17k3"]
+[ext_resource type="Script" uid="uid://dpkfs6i4fw8s" path="res://scripts/main_menu/setting_sens.gd" id="8_3wchj"]
+[ext_resource type="Script" uid="uid://c4bqkxar4r23y" path="res://scripts/main_menu/setting_vol.gd" id="8_p6xm0"]
+[ext_resource type="Script" uid="uid://blcgetklri5eb" path="res://scripts/main_menu/settings_leave.gd" id="11_p17k3"]
 [ext_resource type="Texture2D" uid="uid://br1iixgmkkh63" path="res://assets/logo/Godot_icon.png" id="12_7q50i"]
 [ext_resource type="Texture2D" uid="uid://biey0ey1px04n" path="res://assets/logo/LaleBites LONG.png" id="13_36e8b"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nwuj0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydjy2"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dq0dm"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f30di"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_voh2b"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xh7rr"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paja0"]
-bg_color = Color(0.568627, 0, 0, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-expand_margin_top = 3.0
-expand_margin_bottom = 3.0
-
-[sub_resource type="Theme" id="Theme_2eymn"]
-Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
-Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
-Button/colors/icon_focus_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_normal_color = Color(1, 1, 1, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
-Button/constants/align_to_largest_stylebox = 0
-Button/constants/h_separation = 4
-Button/constants/icon_max_width = 0
-Button/constants/outline_size = 0
-Button/font_sizes/font_size = 35
-Button/fonts/font = ExtResource("1_wyqq0")
-Button/styles/disabled = SubResource("StyleBoxFlat_ydjy2")
-Button/styles/focus = SubResource("StyleBoxFlat_dq0dm")
-Button/styles/hover = SubResource("StyleBoxFlat_f30di")
-Button/styles/normal = SubResource("StyleBoxEmpty_voh2b")
-Button/styles/pressed = SubResource("StyleBoxFlat_xh7rr")
-HSlider/styles/slider = SubResource("StyleBoxFlat_paja0")
-Label/fonts/font = ExtResource("1_wyqq0")
-LineEdit/fonts/font = ExtResource("1_wyqq0")
 
 [sub_resource type="Animation" id="Animation_bamj4"]
 length = 0.001
@@ -148,8 +52,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2skhn"]
 _data = {
-"RESET": SubResource("Animation_bamj4"),
-"logo_upbeat": SubResource("Animation_vhq2m")
+&"RESET": SubResource("Animation_bamj4"),
+&"logo_upbeat": SubResource("Animation_vhq2m")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qegah"]
@@ -245,17 +149,17 @@ expand_mode = 4
 
 [node name="btnPlay" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 text = "JUGAR"
 
 [node name="btnSettings" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 text = "CONFIGURACION"
 
 [node name="btnExit" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 text = "SALIR"
 
 [node name="bgMusic" type="AudioStreamPlayer" parent="MainMenu"]
@@ -280,7 +184,7 @@ expand_mode = 1
 unique_name_in_owner = true
 root_node = NodePath("../../..")
 libraries = {
-"": SubResource("AnimationLibrary_2skhn")
+&"": SubResource("AnimationLibrary_2skhn")
 }
 
 [node name="Settings" type="Control" parent="."]
@@ -316,7 +220,7 @@ script = ExtResource("8_p6xm0")
 
 [node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingVol"]
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 theme_override_font_sizes/font_size = 23
 text = "Volumen: "
 horizontal_alignment = 1
@@ -326,7 +230,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(300, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 min_value = -30.0
 max_value = 6.0
 value = -10.0
@@ -337,7 +241,7 @@ theme_override_constants/separation = 130
 
 [node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingGraficos"]
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 theme_override_font_sizes/font_size = 23
 text = "Graficos:"
 horizontal_alignment = 1
@@ -355,6 +259,7 @@ icon_alignment = 1
 selected = 0
 item_count = 3
 popup/item_0/text = "Bajos"
+popup/item_0/id = 0
 popup/item_1/text = "Medios"
 popup/item_1/id = 1
 popup/item_2/text = "Altos"
@@ -366,7 +271,7 @@ script = ExtResource("8_3wchj")
 
 [node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 theme_override_font_sizes/font_size = 23
 text = "Sensibilidad: "
 horizontal_alignment = 1
@@ -375,12 +280,12 @@ vertical_alignment = 1
 [node name="HSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
 custom_minimum_size = Vector2(320, 30)
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 value = 50.0
 
 [node name="LineEdit" type="LineEdit" parent="Settings/CenterContainer/VBoxContainer/settingSens"]
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 theme_override_font_sizes/font_size = 23
 editable = false
 
@@ -393,7 +298,7 @@ script = ExtResource("11_p17k3")
 [node name="btnExit" type="Button" parent="Settings/CenterContainer/VBoxContainer/settingsLeave"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 text = "SALIR"
 
 [node name="MadeWithGodot" type="Control" parent="."]
@@ -427,7 +332,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MadeWithGodot/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_2eymn")
+theme = ExtResource("6_1qsje")
 theme_override_font_sizes/font_size = 76
 text = "HECHO CON GODOT"
 

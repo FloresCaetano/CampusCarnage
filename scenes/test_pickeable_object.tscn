@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://ue6dwqn40bow"]
 
-[ext_resource type="Script" path="res://scripts/test_pickeable_object.gd" id="1_m38aa"]
+[ext_resource type="Script" uid="uid://c2cft23qlg4gx" path="res://scripts/test_pickeable_object.gd" id="1_m38aa"]
 [ext_resource type="Texture2D" uid="uid://18qgcbnbb02n" path="res://assets/tech/textures/pc_texture.png" id="2_vakal"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g55ac"]
@@ -44,7 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_w3a8l")
 [sub_resource type="BoxShape3D" id="BoxShape3D_c22mi"]
 size = Vector3(0.595, 1.2052, 1.21887)
 
-[node name="TestPickeableObject" type="RigidBody3D" groups=["interactable"]]
+[node name="TestPickeableObject" type="RigidBody3D" groups=["interactable", "passive_shootable"]]
 collision_layer = 5
 mass = 0.2
 script = ExtResource("1_m38aa")
